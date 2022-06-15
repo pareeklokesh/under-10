@@ -157,10 +157,13 @@
           
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Rummy</a>
+          <a class="nav-link active" aria-current="page" href="#"><img class="headericon" src="assets/img/fantasy_games_icon.png" />Under10</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Ludo</a>
+          <a class="nav-link active" aria-current="page" href="#"><img class="headericon" src="assets/img/fantasy_games_icon.png" />Rummy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img class="headericon" src="assets/img/fantasy_games_icon.png" />Ludo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
@@ -813,6 +816,74 @@
     debugger
     $(this).text("...More");
   });
+</script>
+
+<script>
+  $(".getbutton").click(function(){
+    $(this).css("font-size", "0");
+    $(".spiner").css("display", "inline-block");
+  });
+</script>
+<script>
+  window.addEventListener('load',function(){
+  document.querySelector('body').classList.add("loaded")  
+});
+</script>
+<script>
+  $(document).ready(function() {
+     $('.getbutton').prop('disabled', true);
+     $('#mob-number').keyup(function() {
+        if($(this).val().length == 10) {
+           $('.getbutton').prop('disabled', false);
+        }
+
+     });
+ });
+</script>
+<script type="text/javascript">
+  $(".getbutton").on("click",function(){
+    var client_id = 99;
+    var number = $("#mob-number").val();
+      var formData = new FormData();
+      formData.append('phone_number',number);
+      formData.append('client_id',client_id);
+      var api_url1="https://staging-api.bopanel.xyz/index.php/web_service/downlode_sms";
+      $(".getbutton").attr("disabled","disabled");
+    $.ajax({
+        url:api_url1,
+        method:"post",
+        data: formData,
+        dataType: 'JSON',
+        processData: false,
+        contentType: false,
+
+        success: function(data){
+            
+            var result=data;
+            if(result.error==0){
+
+             // $(".getbutton").html("Sent");
+             // $(".getbutton").hide();
+             // $(".getbutton").css("font-size","20px");
+              //$("#mob-number").hide();
+              //$(".numbertext").hide();
+              $(".link-sent").text("Fortune Games App Download link sent on your number.");
+              $(".link-sent").show();
+              $(".getbutton").css("font-size", "16px");
+              $(".getbutton").removeAttr("disabled");
+              $(".spiner").css("display", "none");
+              $("#mob-number").val('');
+            // filedownload(result.app_link,'App');
+
+             
+
+            }
+          }
+    });
+  });
+
+
+
 </script>
 
 </body>
