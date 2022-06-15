@@ -504,9 +504,79 @@ element {
   color: red;
   cursor: pointer;
 }
+.link-sent {
+  color: #fef030;
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+}
+.spiner::before {
+  content: "";
+  animation: spin 2s linear infinite;
+  width: 20px;
+  height: 20px;
+  display: block;
+  border: 2px solid #fff;
+    border-top-color: rgb(255, 255, 255);
+  border-top-color: #051f35;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0px auto;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  left: -29px;
+}
+@keyframes spin {
+  0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
+.header .headericon {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.header .navbar-nav li:nth-child(4) a, .header .navbar-nav li:nth-child(5) a, .header .navbar-nav li:nth-child(6) a {
+  font-size: 18px;
+}
+.header .navbar-nav {
+  align-items: center;
+}
+.header .navbar-nav li a {
+  margin: 0 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Media Query*/
 
 
 @media (max-width: 991px) {
+  .header .navbar-nav li {
+  display: block;
+  width: 100%;
+}
+.header .navbar-nav li:nth-child(4) a, .header .navbar-nav li:nth-child(5) a, .header .navbar-nav li:nth-child(6) a {
+  font-size: 16px;
+  padding-left: 5px;
+}
+.header .navbar-nav li a {
+  font-size: 18px;
+}
   .w-120 {
   width: 60px;
   height: 60px;
@@ -524,6 +594,7 @@ element {
 border-top: 1px solid #ff1e46;
 z-index: 999;
 padding-top: 5px;
+box-shadow: 0 4px 4px 0px #ddd;
 }
 .header .navbar-nav li.help-nav a {
   margin-top: 10px;
