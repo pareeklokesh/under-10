@@ -749,6 +749,17 @@ margin-top: 0 !important;
 
 }
 
+@media (max-width: 767px) {
+  .header {
+  padding-top: 2px;
+  padding-bottom: 0;
+}
+.header .logo {
+  width: 70px;
+}
+
+}
+
 @media (max-width: 380px) {
   .dis-blocad {
     display: none;
